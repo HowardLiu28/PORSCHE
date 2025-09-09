@@ -47,7 +47,7 @@ You can download the corresponding datasets via the links (<a href="https://pan.
 
 ## 🛠️ Requirements and Installation:
 
-Ensure your environment meets the following requirements under python 3.11.0:
+Ensure your environment meets the following requirements under python 3.11.11:
 
 - einops==0.8.1
 - matplotlib==3.10.6
@@ -66,7 +66,7 @@ Ensure your environment meets the following requirements under python 3.11.0:
 
 For convenience, you can run:
 ```bash
-conda create -n porsche python=3.11.0 -y
+conda create -n porsche python=3.11.11 -y
 conda activate porsche
 pip install -r requirements.txt
 ```
