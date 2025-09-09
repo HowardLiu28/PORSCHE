@@ -1,0 +1,95 @@
+MODEL:
+  USE_PRETRAIN: True
+  PRETRAIN_CHOICE: "imagenet"
+  NAME: 'resnet50'  # name of backbone
+  NUM_EMB: 64
+  EMB_DIM: 128
+
+  ####################################################################################
+  # Specific parameters for porsche
+  IBN_TYPE:  # choose from ['a', 'b']
+  NON_LOCAL: True
+  FINAL_LAYER: 'layer3' # choose from ['layer2', 'layer3', 'layer4']
+  NECK_DIM: 1024
+  NUM_HEADS: 1
+  NUM_TRANS_LAYERS: 3
+  D_FF: 2048
+  DROPOUT_RATIO: 0.1
+  ####################################################################################
+
+DATASETS:
+  NAMES: 'msvr310' # support ['rgbir', 'msvr310', 'wmveid863']
+
+INPUT:
+  SIZE_TRAIN: [128, 256]
+  SIZE_TEST: [128, 256]
+  PROB: 0.5
+  RE_PROB: 0.4
+  PADDING: 10
+  USE_CHANNEL_ERASE: False
+  CHANNEL_RE_PROB: 0.3
+  ADAPT_GRAY_PROB: 0.3
+
+DATALOADER: 
+  SAMPLER: 'softmax' 
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 4
+
+SOLVER:
+  METHOD: 'porsche'
+  MODE: [1, 2]  # [1, 2] for RGB2IR, [2, 1] for IR2RGB
+  RANDOM_SEED: 42
+  RESUME: False
+  GPU_ID: ('0')
+
+  MAX_EPOCHS: 100
+  VAL_EPOCHS: 75
+  START_EPOCHS: 0
+  BASE_LR: 0.1
+  OPTIMIZER_NAME: 'SGD'
+
+  RANGE_K: 2
+  RANGE_MARGIN: 0.3
+  RANGE_ALPHA: 0
+  RANGE_BETA: 1
+  RANGE_LOSS_WEIGHT: 1
+
+  BIAS_LR_FACTOR: 1
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_BIAS: 0.0005
+  IMGS_PER_BATCH: 64
+
+  STEPS: [30, 60] 
+  GAMMA: 0.1 
+
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 10
+  WARMUP_METHOD: 'linear'
+
+  CHECKPOINT_PERIOD: 400 
+  LOG_PERIOD: 15 
+  EVAL_PERIOD: 50 
+
+  MOMENTUM: 0.9
+  RE: 1.0
+  NESTEROV: True
+
+  LAMBDA_A: 0.4
+  LAMBDA_1: 1.0
+  LAMBDA_2: 1.0
+  LAMBDA_3: 0.01
+
+TEST:
+  IMGS_PER_BATCH: 16
+  MODE: 'ni'
+  WEIGHT: "out\\ir2rgb\\output_porsche_wmveid863"
+  ####################################################################################
+  # Specific parameters for demo
+  PROB_BS: 512
+  TAU: 100
+  SIGMA: 200
+  K: 10
+  ALPHA: 0.2
+  ####################################################################################
+
+OUTPUT_DIR: 'output_porsche_wmveid863'
