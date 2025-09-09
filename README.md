@@ -44,3 +44,29 @@ PORSCHE is a framework for visible-infrared vehicle re-identification tasks. Its
 ## 🤗 Basic Preparation:
 
 You can download the corresponding datasets via the links (<a href="https://pan.baidu.com/s/167TY9fCz5ZjtDdsOIovX1w?pwd=msvr">MSVR310</a>[Code: msvr], <a href="https://drive.google.com/file/d/186Ep0YgHY0a8BQ1Z59HP1D2-kZazbH02/view?usp=drive_link">WMVeID863</a>, <a href="https://pan.baidu.com/s/1uiKcqiqdhd13nLSW8TUASg">RGBN300</a>[Code: 11y8]) and extract them into the `./dataset` folder.
+
+## 🛠️ Requirements and Installation:
+
+Ensure your environment meets the following requirements under python 3.11.0:
+
+- einops==0.8.1
+- matplotlib==3.10.6
+- numpy==2.3.2
+- opencv_python==4.11.0.86
+- Pillow==11.3.0
+- scikit_learn==1.7.1
+- seaborn==0.13.2
+- thop==0.1.1
+- torch==2.1.0
+- torchcontrib==0.0.2
+- torchvision==0.16.0
+- wandb==0.21.3
+- yacs==0.1.8
+
+
+For convenience, you can run:
+```bash
+conda create -n porsche python=3.11.0 -y
+conda activate porsche
+pip install -r requirements.txt
+```
