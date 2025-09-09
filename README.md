@@ -33,3 +33,14 @@
 🚩 **News** (August.28 2025): The paper is availble at <a href="https://ieeexplore.ieee.org/abstract/document/11030758">here</a>.
 
 🚩 **News** (September.9 2025): The code is now released.
+
+## 📰 Introduction:
+
+PORSCHE is a framework for visible-infrared vehicle re-identification tasks. Its core concept lies in designing two matching modules—PAM and POM—at different granularities, and optimizing the overall architecture through an incremental strategy.
+<p align="center">
+<img src="fig_main_model.png" alt="" align=center />
+</p>
+
+## 🤗 Basic Preparation:
+
+You can download the corresponding datasets via the links (<a href="https://pan.baidu.com/s/167TY9fCz5ZjtDdsOIovX1w?pwd=msvr">MSVR310</a>[Code: msvr], <a href="https://drive.google.com/file/d/186Ep0YgHY0a8BQ1Z59HP1D2-kZazbH02/view?usp=drive_link">WMVeID863</a>, <a href="https://pan.baidu.com/s/1uiKcqiqdhd13nLSW8TUASg">RGBN300</a>[Code: 11y8]) and extract them into the `./dataset` folder.
