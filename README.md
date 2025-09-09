@@ -43,7 +43,7 @@ PORSCHE is a framework for visible-infrared vehicle re-identification tasks. Its
 
 ## 🤗 Basic Preparation:
 
-You can download the corresponding datasets via the links (<a href="https://pan.baidu.com/s/167TY9fCz5ZjtDdsOIovX1w?pwd=msvr">MSVR310</a>[Code: msvr], <a href="https://drive.google.com/file/d/186Ep0YgHY0a8BQ1Z59HP1D2-kZazbH02/view?usp=drive_link">WMVeID863</a>, <a href="https://pan.baidu.com/s/1uiKcqiqdhd13nLSW8TUASg">RGBN300</a>[Code: 11y8]) and extract them into the `./dataset` folder.
+You can download the corresponding datasets via the links (<a href="https://pan.baidu.com/s/167TY9fCz5ZjtDdsOIovX1w?pwd=msvr">MSVR310</a>[Code: msvr], <a href="https://drive.google.com/file/d/186Ep0YgHY0a8BQ1Z59HP1D2-kZazbH02/view?usp=drive_link">WMVeID863</a>, <a href="https://pan.baidu.com/s/1uiKcqiqdhd13nLSW8TUASg">RGBN300</a>[Code: 11y8]) and extract them into the `./datasets` folder.
 
 ## 🛠️ Requirements and Installation:
 
@@ -69,4 +69,32 @@ For convenience, you can run:
 conda create -n porsche python=3.11.0 -y
 conda activate porsche
 pip install -r requirements.txt
+```
+
+## 🚀 Getting Started:
+
+The configuration file corresponding to the proposed PORSCHE method is `./configs/porsche.yml`. You can directly run the following command to train and evaluate the model:
+```bash
+python main.py --config_file "./configs/porsche.yml"
+```
+
+## 🌟 Acknowledgement:
+Our implementation adapts [reid-strong-baseline](https://github.com/michuanhaohao/reid-strong-baseline/tree/master), and [CCNet](https://github.com/superlollipop123/Cross-directional-Center-Network-and-MSVR310) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
+
+```
+@inproceedings{luo2019bag,
+  title={Bag of tricks and a strong baseline for deep person re-identification},
+  author={Luo, Hao and Gu, Youzhi and Liao, Xingyu and Lai, Shenqi and Jiang, Wei},
+  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition workshops},
+  pages={0--0},
+  year={2019}
+}
+```
+```
+@article{zheng2022multi,
+  title={Multi-spectral vehicle re-identification with cross-directional consistency network and a high-quality benchmark},
+  author={Zheng, Aihua and Zhu, Xianpeng and Ma, Zhiqi and Li, Chenglong and Tang, Jin and Ma, Jixin},
+  journal={arXiv preprint arXiv:2208.00632},
+  year={2022}
+}
 ```
